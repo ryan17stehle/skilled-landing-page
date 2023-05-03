@@ -1,0 +1,228 @@
+/* Variables */
+:root {
+    /* Colors */
+    --white: #ffffff;
+    --very-light-blue: #f0f1ff;
+    --navy: #13183f;
+    --gray: #83869a;
+    --blue-gray: #666ca3;
+    --pink: #f74780;
+    --pink-hover: #ffa7c3;
+    --gradient-start: #ff6f48;
+    --gradient-end: #f02aa6;
+    --button-gradient-start: #4851ff;
+
+    /* Font Sizes */
+    --heading-xl: 56px;
+    --heading-l: 40px;
+    --heading-m: 32px;
+    --heading-s: 24px;
+    --body-m: 18px;
+    --body-s: 16px;
+
+    /* Line Spacing */
+    --ls-heading-l: 50px;
+    --ls-heading-m: 40px;
+    --ls-body-m: 28px;
+    --ls-body-s: 26px;
+}
+
+/* Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font: inherit;
+}
+
+/* General Styles */
+html {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, var(--white), var(--very-light-blue));
+    display: grid;
+    place-items: center;
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+}
+
+/* Block */
+.btn {
+    border: none;
+    border-radius: 1rem;
+    color: var(--white);
+    display: block;
+    padding: .5rem 1.25rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Elements */
+
+/* Header Elements */
+.header {
+    margin-bottom: 2rem;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+}
+
+.header__motto {
+    color: var(--navy);
+    font-size: var(--heading-l);
+    font-weight: 800;
+    line-height: var(--ls-heading-l);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 2rem;
+}
+
+.header__p {
+    color: var(--gray);
+    font-size: var(--body-s);
+    font-weight: 500;
+    line-height: var(--ls-body-s);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.header__picture {
+    display: grid;
+    place-items: center;
+}
+
+/* Main Elements */
+.main__grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.main__h2 {
+    color: var(--white);
+    font-size: var(--heading-m);
+    line-height: var(--ls-heading-m);
+}
+
+.main__section {
+    background-color: var(--white);
+    border-radius: 1rem;
+}
+
+.main__section > * {
+    padding: 0.75rem 1.5rem;
+    /* This would shift all children up 32 px for the 
+    icon to be slightly out of the box.
+
+    position: relative;
+    top: -2rem;
+    
+    */
+}
+
+.main__h3 {
+    color: var(--navy);
+}
+
+.main__p {
+    color: var(--gray);
+}
+
+.main__link {
+    text-decoration: none;
+    color: var(--pink);
+    font-weight: 800;
+
+    display: block;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--navy);
+    display: grid;
+    place-items: center;
+    min-width: 100%;
+}
+
+.footer__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0;
+}
+
+/* Modifiers */
+.btn--dark {
+    background-color: var(--navy);
+}
+
+.btn--dark:hover {
+    background-color: var(--blue-gray);
+}
+
+.btn--gradient {
+    background: linear-gradient(var(--gradient-start), var(--gradient-end));
+}
+
+.btn--gradient:hover {
+    /* Not sure if this is correct? Could maybe use some rgba? */
+    background: linear-gradient(color-mix(in srgb, var(--gradient-start) 50%, white), color-mix(in srgb, var(--gradient-end) 50%, white));
+}
+
+.main__section--first-item {
+    background: linear-gradient(var(--gradient-start), var(--gradient-end));
+}
+
+/* Media Queries */
+@media (768px <= width) {
+    .container {
+        width: 80%;
+    }
+
+    .header__grid {
+        display: grid;
+        gap: 2rem;
+        place-items: center;
+    }
+
+    .header__grid, .main__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main__section--first-item {
+        display: grid;
+        place-items: center;
+    }
+
+    .img--hero {
+        width: 600px;
+    }
+}
+
+@media (1440px <= width) {
+    .container {
+        width: 70%;
+    }
+
+    .main__grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
